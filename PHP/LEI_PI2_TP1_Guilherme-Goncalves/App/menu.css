@@ -1,0 +1,269 @@
+body {
+    background: #e9f0f0;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial';
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    background: #71da9d;
+    padding: 3px;
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+
+}
+
+header h1 {
+    font-size: 35px;
+    margin: 10px;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+}
+
+.logo {
+    display: flex;
+}
+
+.logout {
+    background-color: rgb(255, 115, 115);
+    width: 8%;
+    height: 20px;
+    margin-right: 10px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid black;
+    font-weight: bold;
+}
+
+#sair {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.menu {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.barra_lateral {
+    width: 200px;
+    background-color: rgb(50, 76, 97);
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'Arial';
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.barra_lateral ul {
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+}
+
+.barra_lateral li {
+    padding: 15px;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+.barra_lateral li:hover {
+    background-color: rgb(82,104,118);
+}
+
+.barra_lateral a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.formulario {
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+}
+
+.formulario a {
+    color: #000000;
+}
+
+.form {
+    margin: 20px auto;
+    width: 40%;
+    padding: 20px 20px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #000000;
+}
+
+.dados_registo_login {
+    font-size: 15px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 25px;
+    height: 25px;
+    width: 93%;
+    background-color: #dddddd;
+}
+
+.mensagemErro {
+    font-size: 15px;
+    background-color: rgb(255, 177, 177);
+    color: rgb(102, 0, 0);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 95%;
+    margin-bottom: 25px;
+}
+
+.mensagem {
+    font-size: 15px;
+    background-color: rgb(137, 255, 121);
+    color: rgb(0, 102, 5);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 95%;
+    margin-bottom: 25px;
+}
+
+.botao_registo_login {
+    color: #fff;
+    background: rgb(60, 142, 209);
+    border: 1px solid #4749ce;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.superior h2 {
+    margin-left: 5%;
+}
+
+.inserirEnti {
+    background-color: rgb(66, 231, 80);
+    width: 20%;
+    height: 20px;
+    margin-right: 10px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid black;
+    font-weight: bold;
+}
+
+#inserir {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.tabela { 
+    width: 100%;
+    border-collapse: collapse; 
+} 
+
+td { 
+    padding: 15px; 
+    border-bottom: 15px; 
+    background-clip: padding-box; 
+}
+
+tr {
+    border-top: 2px solid black ;
+    border-bottom: 2px solid black ;
+    background-color: white;
+}
+
+td:first-child {
+    width: 45%;
+    font-weight: bold;
+}
+
+.Ativar {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    background-color: #3aff65;
+    border: 1px solid black ;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 60%;
+    font-size: 16px;
+}
+
+.Desativar {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    background-color: rgb(255, 115, 115);
+    border: 1px solid black ;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 60%;
+    font-size: 16px;
+}
+
+.botão {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    background-color: #3a99ff;
+    border: 1px solid black ;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.detalhes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px auto;
+    width: 60%;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.detalhes2{
+    text-align: left;
+}
+
+.imagemEntidade {
+    margin-right: 30px;
+}
+
+
+
+
+
+
+

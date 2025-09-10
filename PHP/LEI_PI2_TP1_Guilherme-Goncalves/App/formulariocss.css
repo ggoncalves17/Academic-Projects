@@ -1,0 +1,79 @@
+body {
+    background: #056365;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    background: #71da9d;
+    padding: 1px;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header h1 {
+    font-size: 40px;
+    margin: 10px;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+}
+
+.form {
+    margin: 50px auto;
+    width: 300px;
+    padding: 30px 25px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #000000;
+}
+h1.registo_login {
+    color: #000000;
+    margin: 0px auto 25px;
+    font-size: 25px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.dados_registo_login {
+    font-size: 15px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 25px;
+    height: 25px;
+    width: 93%;
+    background-color: #dddddd;
+}
+
+.mensagemErro {
+    font-size: 15px;
+    background-color: rgb(255, 177, 177);
+    color: rgb(102, 0, 0);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 93%;
+    margin-bottom: 25px;
+
+}
+
+.botao_registo_login {
+    color: #fff;
+    background: rgb(60, 142, 209);
+    border: 1px solid #4749ce;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+}
+
+h3 {
+    font-weight: normal;
+    text-align: center;
+}

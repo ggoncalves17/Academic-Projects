@@ -1,0 +1,75 @@
+// URL base da API
+@apiurl = http://127.0.0.1:8080
+@auth-token = cdbec0a53358be471a4c5f3b8902a0fb
+
+### REQUISITO 1 - Registar Novo Cliente  
+POST {{apiurl}}/api/users/ HTTP/1.1
+Content-Type: application/json
+
+{ 
+    "nome" : "Pedro Saramago",
+    "email" : "asaramago@gmail.com",
+    "telefone" : "960000002",
+    "password" : "exemplo2"
+}
+
+### REQUISITO 2 - Autenticação dos clientes
+PATCH {{apiurl}}/api/users/ HTTP/1.1
+Content-Type: application/json
+
+{ 
+    "email" : "psaramago@gmail.com",
+    "password" : "exemplo2"
+}
+
+### REQUISITO 3 - Terminar Sessão de um cliente
+PATCH {{apiurl}}/api/users/logout/ HTTP/1.1
+Authorization : {{auth-token}}
+
+### REQUISITO 4 - Obter lista das entidades ativas
+GET {{apiurl}}/api/entidades/ HTTP/1.1
+Authorization : {{auth-token}}
+
+### REQUISITO 5 - Obter lista das entidades ativas com ofertas para o dia
+GET {{apiurl}}/api/entidades/comOfertas/ HTTP/1.1
+Authorization : {{auth-token}}
+
+### REQUISITO 6 - Obter detalhes de uma entidade
+GET {{apiurl}}/api/entidades/10/ HTTP/1.1
+Authorization : {{auth-token}}
+
+### REQUISITO 7 - Obter lista de ofertas disponiveis de uma entidade para aquele dia
+GET {{apiurl}}/api/entidades/ofertas/10/ HTTP/1.1
+Authorization : {{auth-token}}
+
+### REQUISITO 8 - Obter lista de todas as ofertas ainda disponíveis para aquele dia
+GET {{apiurl}}/api/entidades/ofertas/ HTTP/1.1
+Authorization : {{auth-token}}
+
+### REQUISITO 9 - Registar a compra de uma oferta
+POST {{apiurl}}/api/entidades/ofertas/comprar HTTP/1.1
+Authorization : {{auth-token}}
+Content-Type: application/json
+
+{ 
+    "id_oferta" : "4"
+}
+
+### REQUISITO 10 - Obter lista compras efetuadas pelo utilizador
+GET {{apiurl}}/api/users/compras/ HTTP/1.1
+Authorization : {{auth-token}}
+
+### REQUISITO 11 - Cancelar uma compra   
+PATCH {{apiurl}}/api/users/compras/ HTTP/1.1
+Authorization : {{auth-token}}
+Content-Type: application/json
+
+{ 
+    "id_compra" : "6"
+}
+
+
+
+
+
+
