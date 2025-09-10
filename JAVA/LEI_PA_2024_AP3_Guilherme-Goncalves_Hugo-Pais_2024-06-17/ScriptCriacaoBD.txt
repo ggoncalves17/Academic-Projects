@@ -1,0 +1,126 @@
+CREATE TABLE utilizadores (
+	idutilizador AUTO_INCREMENT,
+	nome	 varchar(60),
+	login	 varchar(60),
+	password	 varchar(256),
+	estado	 boolean,
+	email	 varchar(60),
+	tipo	 int,
+	PRIMARY KEY(idutilizador)
+);
+
+CREATE TABLE autores (
+	nif			 int,
+	estiloliterario		 varchar(60),
+	inicioatividade		 date,
+	telefone			 int,
+	morada			 varchar(60),
+	utilizadores_idutilizador int,
+	PRIMARY KEY(utilizadores_idutilizador)
+);
+
+CREATE TABLE revisores (
+	nif			 int,
+	telefone			 int,
+	morada			 varchar(60),
+	areaespecializacao	 varchar(60),
+	formacaoacademica	 varchar(60),
+	utilizadores_idutilizador int,
+	PRIMARY KEY(utilizadores_idutilizador)
+);
+
+CREATE TABLE obrasliterarias (
+	idobra		 AUTO_INCREMENT,
+	titulo		 varchar(100),
+	subtitulo	 varchar(100),
+	estiloliterario varchar(60),
+	tipopublicacao	 int,
+	npaginas	 int,
+	codisbn	 int,
+	nedicao	 int,
+	datasubmissao	 date,
+	dataaprovacao	 date,
+	PRIMARY KEY(idobra)
+);
+
+CREATE TABLE revisao (
+	idrevisao		 AUTO_INCREMENT,
+	nserie		 varchar(60),
+	datarealizacao	 date,
+	datafinal		 date,
+	observacoes		 varchar(250),
+	custoprocesso		 float(8),
+	estadorevisao		 int,
+	obrasliterarias_idobra int NOT NULL,
+	PRIMARY KEY(idrevisao)
+);
+
+CREATE TABLE anotacoes (
+	idanotacoes	 AUTO_INCREMENT,
+	descricao	 varchar(100),
+	pagina		 int,
+	paragrafo	 int,
+	dataanotacao	 date,
+	revisao_idrevisao int NOT NULL,
+	PRIMARY KEY(idanotacoes)
+);
+
+CREATE TABLE logs (
+	idlog			 AUTO_INCREMENT,
+	datalogexecucao		 date,
+	acao			 varchar(150),
+	utilizadores_idutilizador int NOT NULL,
+	PRIMARY KEY(idlog)
+);
+
+CREATE TABLE notificacoes (
+	idnotificacao	 AUTO_INCREMENT,
+	mensagem	 varchar(512),
+	datanotificacao date,
+	tipouserdestino int,
+	vista		 boolean,
+	PRIMARY KEY(idnotificacao)
+);
+
+CREATE TABLE aplicacoesplagio (
+	idaplicacao	 AUTO_INCREMENT,
+	nomelicenca	 varchar(512),
+	nlicencas	 int,
+	prazoutilizacao varchar(512),
+	PRIMARY KEY(idaplicacao)
+);
+
+CREATE TABLE notificacoes_utilizadores (
+	notificacoes_idnotificacao int,
+	utilizadores_idutilizador	 int NOT NULL,
+	PRIMARY KEY(notificacoes_idnotificacao)
+);
+
+CREATE TABLE utilizadores_revisao (
+	utilizadores_idutilizador int,
+	revisao_idrevisao	 int,
+	PRIMARY KEY(utilizadores_idutilizador,revisao_idrevisao)
+);
+
+CREATE TABLE utilizadores_obrasliterarias (
+	utilizadores_idutilizador int,
+	obrasliterarias_idobra	 int,
+	PRIMARY KEY(utilizadores_idutilizador,obrasliterarias_idobra)
+);
+
+ALTER TABLE autores ADD UNIQUE (nif);
+ALTER TABLE autores ADD CONSTRAINT autores_fk1 FOREIGN KEY (utilizadores_idutilizador) REFERENCES utilizadores(idutilizador);
+ALTER TABLE revisores ADD UNIQUE (nif);
+ALTER TABLE revisores ADD CONSTRAINT revisores_fk1 FOREIGN KEY (utilizadores_idutilizador) REFERENCES utilizadores(idutilizador);
+ALTER TABLE obrasliterarias ADD UNIQUE (codisbn);
+ALTER TABLE revisao ADD UNIQUE (nserie);
+ALTER TABLE revisao ADD CONSTRAINT revisao_fk1 FOREIGN KEY (obrasliterarias_idobra) REFERENCES obrasliterarias(idobra);
+ALTER TABLE anotacoes ADD CONSTRAINT anotacoes_fk1 FOREIGN KEY (revisao_idrevisao) REFERENCES revisao(idrevisao);
+ALTER TABLE logs ADD CONSTRAINT logs_fk1 FOREIGN KEY (utilizadores_idutilizador) REFERENCES utilizadores(idutilizador);
+ALTER TABLE notificacoes_utilizadores ADD CONSTRAINT notificacoes_utilizadores_fk1 FOREIGN KEY (notificacoes_idnotificacao) REFERENCES notificacoes(idnotificacao);
+ALTER TABLE notificacoes_utilizadores ADD CONSTRAINT notificacoes_utilizadores_fk2 FOREIGN KEY (utilizadores_idutilizador) REFERENCES utilizadores(idutilizador);
+ALTER TABLE utilizadores_revisao ADD CONSTRAINT utilizadores_revisao_fk1 FOREIGN KEY (utilizadores_idutilizador) REFERENCES utilizadores(idutilizador);
+ALTER TABLE utilizadores_revisao ADD CONSTRAINT utilizadores_revisao_fk2 FOREIGN KEY (revisao_idrevisao) REFERENCES revisao(idrevisao);
+ALTER TABLE utilizadores_obrasliterarias ADD CONSTRAINT utilizadores_obrasliterarias_fk1 FOREIGN KEY (utilizadores_idutilizador) REFERENCES utilizadores(idutilizador);
+ALTER TABLE utilizadores_obrasliterarias ADD CONSTRAINT utilizadores_obrasliterarias_fk2 FOREIGN KEY (obrasliterarias_idobra) REFERENCES obrasliterarias(idobra);
+
