@@ -1,0 +1,79 @@
+CREATE TABLE eventos (
+	idevento		 SERIAL,
+	nomeevento		 VARCHAR(60),
+	tipo		 VARCHAR(60) NOT NULL,
+	localevento	 VARCHAR(60) NOT NULL,
+	datainicio		 TIMESTAMP NOT NULL,
+	datafim		 TIMESTAMP NOT NULL,
+	datainscricaoinicio TIMESTAMP NOT NULL,
+	datainscricaofim	 TIMESTAMP NOT NULL,
+	lugares		 INTEGER NOT NULL,
+	precoentrada	 FLOAT(9) NOT NULL,
+	eventoativo	 BOOL NOT NULL,
+	PRIMARY KEY(idevento)
+);
+
+CREATE TABLE utilizadores (
+	idutilizador	 SERIAL,
+	username	 VARCHAR(60) NOT NULL,
+	password	 VARCHAR(256) NOT NULL,
+	tipoutilizador BOOL NOT NULL,
+	saldo		 FLOAT(9) NOT NULL,
+	ativo		 BOOL NOT NULL,
+	PRIMARY KEY(idutilizador)
+);
+
+CREATE TABLE inscricoes (
+	idinscricao		 SERIAL,
+	inscricaoativa		 BOOL NOT NULL,
+	datainscricao		 TIMESTAMP,
+	subscricaocomentarios	 BOOL NOT NULL,
+	eventos_idevento		 INTEGER NOT NULL,
+	utilizadores_idutilizador INTEGER NOT NULL,
+	PRIMARY KEY(idinscricao)
+);
+
+CREATE TABLE historicoprecos (
+	idhistoricopreco	 SERIAL,
+	preco		 FLOAT(9) NOT NULL,
+	dataalteracaopreco TIMESTAMP NOT NULL,
+	eventos_idevento	 INTEGER NOT NULL,
+	PRIMARY KEY(idhistoricopreco)
+);
+
+CREATE TABLE comentarios (
+	idcomentario		 SERIAL,
+	comentario		 TEXT,
+	comentarioativo		 BOOL NOT NULL,
+	utilizadores_idutilizador INTEGER NOT NULL,
+	eventos_idevento		 INTEGER NOT NULL,
+	PRIMARY KEY(idcomentario)
+);
+
+CREATE TABLE notificacoes (
+	idnotificacao		 SERIAL,
+	notificacao		 TEXT NOT NULL,
+	datanotificacao		 TIMESTAMP NOT NULL,
+	notificacaoativa		 BOOL NOT NULL,
+	eventos_idevento		 INTEGER NOT NULL,
+	utilizadores_idutilizador INTEGER NOT NULL,
+	PRIMARY KEY(idnotificacao)
+);
+
+CREATE TABLE utilizadores_eventos (
+	utilizadores_idutilizador INTEGER,
+	eventos_idevento		 INTEGER,
+	PRIMARY KEY(utilizadores_idutilizador,eventos_idevento)
+);
+
+ALTER TABLE utilizadores ADD UNIQUE (username);
+ALTER TABLE inscricoes ADD CONSTRAINT inscricoes_fk1 FOREIGN KEY (eventos_idevento) REFERENCES eventos(idevento);
+ALTER TABLE inscricoes ADD CONSTRAINT inscricoes_fk2 FOREIGN KEY (utilizadores_idutilizador) REFERENCES utilizadores(idutilizador);
+ALTER TABLE historicoprecos ADD CONSTRAINT historicoprecos_fk1 FOREIGN KEY (eventos_idevento) REFERENCES eventos(idevento);
+ALTER TABLE comentarios ADD CONSTRAINT comentarios_fk1 FOREIGN KEY (utilizadores_idutilizador) REFERENCES utilizadores(idutilizador);
+ALTER TABLE comentarios ADD CONSTRAINT comentarios_fk2 FOREIGN KEY (eventos_idevento) REFERENCES eventos(idevento);
+ALTER TABLE notificacoes ADD CONSTRAINT notificacoes_fk1 FOREIGN KEY (eventos_idevento) REFERENCES eventos(idevento);
+ALTER TABLE notificacoes ADD CONSTRAINT notificacoes_fk2 FOREIGN KEY (utilizadores_idutilizador) REFERENCES utilizadores(idutilizador);
+ALTER TABLE utilizadores_eventos ADD CONSTRAINT utilizadores_eventos_fk1 FOREIGN KEY (utilizadores_idutilizador) REFERENCES utilizadores(idutilizador);
+ALTER TABLE utilizadores_eventos ADD CONSTRAINT utilizadores_eventos_fk2 FOREIGN KEY (eventos_idevento) REFERENCES eventos(idevento);
+

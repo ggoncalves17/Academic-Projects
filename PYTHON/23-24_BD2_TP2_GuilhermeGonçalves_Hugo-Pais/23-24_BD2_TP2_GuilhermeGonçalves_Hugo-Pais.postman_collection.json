@@ -1,0 +1,627 @@
+{
+	"info": {
+		"_postman_id": "f2d99cfd-ef03-4e56-b7d6-d2d5ffd61459",
+		"name": "Trabalho Final - BDII",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33530853"
+	},
+	"item": [
+		{
+			"name": "Registar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"Teste3\",\r\n    \"password\" : \"teste\",\r\n    \"tipoutilizador\" : \"False\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/registar",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"registar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Autenticar",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"Teste1\",\r\n    \"password\" : \"teste\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/autenticar",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"autenticar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Saldo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHV0aWxpemFkb3IiOjIzLCJleHAiOjE3MTUyOTAzMTl9.ya31HkjjEBMdnsAVPuj_sSNVoZ1YHJFocLv0XVDkAG0"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/consultarSaldo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"consultarSaldo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Carregar Saldo",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHV0aWxpemFkb3IiOjIzLCJleHAiOjE3MTUyODc5MzV9.RrU3dYF44kZ1QxeAlxqC3zTBUJ7f4ZS5lWWD2i_z2xw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"valor\" : 20\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/alterarSaldo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"alterarSaldo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Notificações",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHV0aWxpemFkb3IiOjIzLCJleHAiOjE3MTUyOTI2MDF9.tZzoOvqGp_rE6qxLBL-ThTxhWLTsLw3d3GA-C3zViwM"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/verNotificacoes",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"verNotificacoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Evento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHV0aWxpemFkb3IiOjIzLCJleHAiOjE3MTUyODc5MzV9.RrU3dYF44kZ1QxeAlxqC3zTBUJ7f4ZS5lWWD2i_z2xw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\" : \"Evento Teatro\",\r\n    \"tipo\" : \"Teatro\",\r\n    \"localevento\" : \"Oliveira do Hospital\",\r\n    \"datainicio\" : \"11-05-2024\",\r\n    \"datafim\" : \"13-05-2024\",\r\n    \"datainscricaoinicio\" : \"08-05-2024\",\r\n    \"datainscricaofim\" : \"10-05-2024\",\r\n    \"lugares\" : 80,\r\n    \"precoentrada\" : 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/criarEvento",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"criarEvento"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar Evento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHV0aWxpemFkb3IiOjIxLCJleHAiOjE3MTUzMTk2MTR9.-mCkPf5xL0OxeQk3jhrsZUiEz_xDXNZqFOU-gc3CKQQ"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\" : \"Evento Musical (23)\",\r\n    \"tipo\" : \"Musical\",\r\n    \"localevento\" : \"Oliveira do Hospital\",\r\n    \"datainicio\" : \"10-05-2024\",\r\n    \"datafim\" : \"12-05-2024\",\r\n    \"datainscricaoinicio\" : \"08-05-2024\",\r\n    \"datainscricaofim\" : \"09-05-2024\",\r\n    \"lugares\" : 50,\r\n    \"precoentrada\" : 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/evento/8",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"evento",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pesquisar Evento",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHV0aWxpemFkb3IiOjIzLCJleHAiOjE3MTUyODc5MzV9.RrU3dYF44kZ1QxeAlxqC3zTBUJ7f4ZS5lWWD2i_z2xw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"datainicio\" : \"10-05-2024\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/pesquisarEventos",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"pesquisarEventos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Eventos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHV0aWxpemFkb3IiOjIzLCJleHAiOjE3MTUyODc5MzV9.RrU3dYF44kZ1QxeAlxqC3zTBUJ7f4ZS5lWWD2i_z2xw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/listarEventos",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"listarEventos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Eventos Utilizador",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHV0aWxpemFkb3IiOjIzLCJleHAiOjE3MTUyODc5MzV9.RrU3dYF44kZ1QxeAlxqC3zTBUJ7f4ZS5lWWD2i_z2xw"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/listarEventosUtilizador",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"listarEventosUtilizador"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Detalhes Evento",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHV0aWxpemFkb3IiOjIzLCJleHAiOjE3MTUyODc5MzV9.RrU3dYF44kZ1QxeAlxqC3zTBUJ7f4ZS5lWWD2i_z2xw"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/evento/5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"evento",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comprar Entrada de Evento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHV0aWxpemFkb3IiOjIxLCJleHAiOjE3MTUyODk5ODZ9.bVzF_eJMVzTUJjQbhbBF4bNRA8oZnpDQnIStYD-3ffM"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/comprarEntrada/8",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"comprarEntrada",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancelar Evento",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHV0aWxpemFkb3IiOjIzLCJleHAiOjE3MTUyOTEzNzJ9.Xi4lrghjIF9K2lJzq5LXqMEWXAWQj0pcNynBMHvbX14"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idEvento\" : 8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/cancelarEvento",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"cancelarEvento"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inserir Comentário",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHV0aWxpemFkb3IiOjIzLCJleHAiOjE3MTUyODc5MzV9.RrU3dYF44kZ1QxeAlxqC3zTBUJ7f4ZS5lWWD2i_z2xw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comentario\" : \"A testar\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/comentarEvento/5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"comentarEvento",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subscrever / Não Subscrever Comentários",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHV0aWxpemFkb3IiOjIzLCJleHAiOjE3MTUyODc5MzV9.RrU3dYF44kZ1QxeAlxqC3zTBUJ7f4ZS5lWWD2i_z2xw"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/subscrevercomentariosevento/5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"subscrevercomentariosevento",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comentarios Evento",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHV0aWxpemFkb3IiOjIzLCJleHAiOjE3MTUyODc5MzV9.RrU3dYF44kZ1QxeAlxqC3zTBUJ7f4ZS5lWWD2i_z2xw"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/comentariosEvento/5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"comentariosEvento",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Evento com mais inscrições",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHV0aWxpemFkb3IiOjIxLCJleHAiOjE3MTUyODk5ODZ9.bVzF_eJMVzTUJjQbhbBF4bNRA8oZnpDQnIStYD-3ffM"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/eventoscommaisinscricoes",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"eventoscommaisinscricoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ativar / Desativar Utilizador",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHV0aWxpemFkb3IiOjIxLCJleHAiOjE3MTUyODk5ODZ9.bVzF_eJMVzTUJjQbhbBF4bNRA8oZnpDQnIStYD-3ffM"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idbanir\" : 21\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/ativarDesativarUtilizador",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"ativarDesativarUtilizador"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHV0aWxpemFkb3IiOjIyLCJleHAiOjE3MTUzMTk1NDZ9.x08axFU3OS0F2FPvY1FiVF9K7mUr0OEqaKGsn3vaUbg"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/logout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
